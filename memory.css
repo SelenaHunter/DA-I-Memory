@@ -1,0 +1,66 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	height: 100vh;
+	background-color: #526845;
+}
+
+.memory-game {
+	width: calc(445px + 50px);
+	height: calc(352px + 50px);
+	display: flex;
+	flex-wrap:wrap;
+	margin: auto;
+	perspective: 1000px;
+}
+
+.card {
+	width: calc(20% - 5px);
+	height: calc(25% - 5px);
+	position: relative;
+	margin: 2px;
+	transform: scale(1);
+	transform-style: preserve-3d;
+	transition: transform .2s;
+}
+
+.card:active {
+	transform: scale(.80);
+	transition: transform .1s;
+}
+
+.card.flip {
+	transform: rotateY(180deg);
+}
+
+/*
+Make a 5 x 4 grid
+o o o o o
+o o o o o
+o o o o o 
+o o o o o
+width: 89px x 5 ==== 445px
+height: 88px x 4 === 352px
+*/
+
+.front-face,
+.back-face {
+	/*	width: 89px;
+	height: 88px;*/
+	position: absolute;
+	backface-visibility: hidden;
+}
+
+.front-face {
+	transform: rotateY(180deg);
+}
+
+img {/*
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);*/
+}
