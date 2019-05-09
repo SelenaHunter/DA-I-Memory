@@ -25,6 +25,7 @@ body {
 	margin: 2px;
 	transform: scale(1);
 	transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
 	transition: transform .2s;
 }
 
@@ -41,6 +42,7 @@ body {
 .back-face {
 	position: absolute;
 	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
 }
 
 .front-face {
