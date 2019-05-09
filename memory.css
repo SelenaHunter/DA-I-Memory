@@ -13,9 +13,9 @@ body {
 	width: calc(445px + 50px);
 	height: calc(352px + 50px);
 	display: flex;
-	flex-wrap:wrap;
-	margin: auto;
+	flex-wrap: wrap;
 	perspective: 1000px;
+	margin: auto;
 }
 
 .card {
@@ -37,20 +37,8 @@ body {
 	transform: rotateY(180deg);
 }
 
-/*
-Make a 5 x 4 grid
-o o o o o
-o o o o o
-o o o o o 
-o o o o o
-width: 89px x 5 ==== 445px
-height: 88px x 4 === 352px
-*/
-
 .front-face,
 .back-face {
-	/*	width: 89px;
-	height: 88px;*/
 	position: absolute;
 	backface-visibility: hidden;
 }
@@ -61,7 +49,11 @@ height: 88px x 4 === 352px
 
 .score {
 	color: #eaf6ca;
+	width: calc(445px + 50px);
 	font-size: 2em;
-	font-family: sans-serif;
-	text-align: center;
+	font-weight: 700;
+    font-family: 'Cinzel', serif;
+	text-align: right;
+	margin: auto;
+	padding: 15px;
 }
