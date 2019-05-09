@@ -2,6 +2,8 @@ const cards = document.querySelectorAll('.card');
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
+let score = 0;
+document.getElementById('#labelScore');
 
 function flipCard() {
 	if (lockBoard) return;
@@ -23,6 +25,7 @@ function flipCard() {
 function checkForMatch() {
 	if (firstCard.dataset.name === secondCard.dataset.name) {
 		disableCards();
+		addScore();
 	} else {
 		unflipCards();
 	}
@@ -54,5 +57,10 @@ function resetBoard() {
 	card.style.order = randomPos;
 	});
 })();
+
+function addScore() {
+	score += 1;
+	labelScore.innerHTML = score;
+}
 
 cards.forEach(card => card.addEventListener('click', flipCard));

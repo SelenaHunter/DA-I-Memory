@@ -6,7 +6,7 @@
 
 body {
 	height: 100vh;
-	background-color: #526845;
+	background-color: #1e3313;
 }
 
 .memory-game {
@@ -59,8 +59,9 @@ height: 88px x 4 === 352px
 	transform: rotateY(180deg);
 }
 
-img {/*
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);*/
+.score {
+	color: #eaf6ca;
+	font-size: 2em;
+	font-family: sans-serif;
+	text-align: center;
 }
