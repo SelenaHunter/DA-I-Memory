@@ -3,7 +3,14 @@ let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 let score = 0;
+let time = 0;
+let numTries = 0;
+
 document.getElementById('#labelScore');
+document.getElementById('#labelTime');
+let end = document.getElementById('game-end');
+
+cards.forEach(card => card.addEventListener('click', flipCard));
 
 function flipCard() {
 	if (lockBoard) return;
@@ -26,7 +33,9 @@ function checkForMatch() {
 	if (firstCard.dataset.name === secondCard.dataset.name) {
 		disableCards();
 		addScore();
+		numTries += 1;
 	} else {
+		numTries += 1;
 		unflipCards();
 	}
 }
@@ -61,6 +70,14 @@ function resetBoard() {
 function addScore() {
 	score += 1;
 	labelScore.innerHTML = score;
+	checkGameEnd();
 }
 
-cards.forEach(card => card.addEventListener('click', flipCard));
+function checkGameEnd() {
+	if (score == 10) {
+		end.style.display = "grid";
+		tries.style.display = "block";
+		labelTries.innerHTML = numTries;
+		
+	}
+}

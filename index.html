@@ -8,11 +8,20 @@
 	<meta name="description" content="">
 	<title>Memory</title>
 	<link rel="stylesheet" href="memory.css">
-	<link href="https://fonts.googleapis.com/css?family=Cinzel:700|Just+Another+Hand" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Cinzel:700|Just+Another+Hand" rel="stylesheet">
 </head>
 
 <body>
 	<section class="score-box">
+		<div id="game-end">
+			<label id="labelGameEnd">You win!</label>
+		</div>
+		<div id="tries">
+			It took you <label id="labelTries"></label> tries.
+		</div>
+		<div class="time">
+			Time: <label id="labelTime">0:00</label>
+		</div>
 		<div class="score">
 			Score: <label id="labelScore">0</label>
 		</div>
