@@ -3,7 +3,6 @@ let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 let score = 0;
-let time = 0;
 let numTries = 0;
 
 document.getElementById('#labelScore');
@@ -13,6 +12,7 @@ let end = document.getElementById('game-end');
 cards.forEach(card => card.addEventListener('click', flipCard));
 
 function flipCard() {
+	timer();
 	if (lockBoard) return;
 	if (this === firstCard) return;
 	
@@ -78,6 +78,5 @@ function checkGameEnd() {
 		end.style.display = "grid";
 		tries.style.display = "block";
 		labelTries.innerHTML = numTries;
-		
 	}
 }

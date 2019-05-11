@@ -61,10 +61,12 @@ body {
 
 .score {
 	grid-area: score;
+	text-align: right;
 }
 
 .time {
 	grid-area: time;
+	text-align: left;
 }
 
 #tries {
@@ -86,10 +88,10 @@ body {
 	margin: auto;
 	text-align: center;
 	align-items: center;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 1fr 1fr 1fr;
 	grid-template-areas:
-		"end end end"
-		"tries tries tries"
-		"time . score";
+		"end end"
+		"tries tries"
+		"time score";
 }
