@@ -20,6 +20,8 @@ body {
 	flex-wrap: wrap;
 	perspective: 1000px;
 	margin: auto;
+	border: 4px double #898f19;
+	padding: 5px;
 }
 
 .card {

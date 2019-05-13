@@ -4,18 +4,15 @@ let lockBoard = false;
 let firstCard, secondCard;
 let score = 0;
 let numTries = 0;
-
-document.getElementById('#labelScore');
-document.getElementById('#labelTime');
 let end = document.getElementById('game-end');
 
 cards.forEach(card => card.addEventListener('click', flipCard));
 
 function flipCard() {
-	timer();
 	if (lockBoard) return;
 	if (this === firstCard) return;
-	
+	runTimer();
+
 	this.classList.toggle('flip');
 
 	if (!hasFlippedCard) {
@@ -63,20 +60,34 @@ function resetBoard() {
 (function shuffle() {
 	cards.forEach(card => {
 		let randomPos = Math.floor(Math.random() * 12);
-	card.style.order = randomPos;
+		card.style.order = randomPos;
 	});
 })();
 
 function addScore() {
 	score += 1;
 	labelScore.innerHTML = score;
-	checkGameEnd();
-}
-
-function checkGameEnd() {
 	if (score == 10) {
 		end.style.display = "grid";
 		tries.style.display = "block";
 		labelTries.innerHTML = numTries;
+	}
+}
+
+// Timer functions
+let timestampAtStart = null;
+let lastRequestId = null;
+function runTimer(timestamp) {
+	if (!timestampAtStart) {
+		timestampAtStart = timestamp;
+	}
+	let timeSinceStart = timestamp - timestampAtStart;
+	lastRequestId = window.requestAnimationFrame(runTimer);
+	
+	let s = Math.floor((timeSinceStart / 1000) % 60).toString().padStart(2, '0');
+	let m = Math.floor((timeSinceStart / 60000) % 60);
+	document.getElementById('labelTime').innerHTML = m + ":" + s;
+	if (score == 10) {
+		lastRequestId = window.cancelAnimationFrame(lastRequestId)
 	}
 }
