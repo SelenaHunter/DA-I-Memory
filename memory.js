@@ -16,11 +16,11 @@ function flipCard() {
 	this.classList.toggle('flip');
 
 	if (!hasFlippedCard) {
-		//if false, it's the first time the player clicked a card
+		//if hasFlippedCard is false, it's the first time the player has clicked a card
 		hasFlippedCard = true;
 		firstCard = this;
 	} else {
-		//second click
+		//if hasFlippedCard is true, it is the second time the player has clicked a card
 		secondCard = this;
 		checkForMatch();
 	}
